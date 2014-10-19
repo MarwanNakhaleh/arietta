@@ -3,6 +3,10 @@ class MessagesController < ApplicationController
   before_action :set_messages, only: [:edit, :update, :destroy]
   respond_to :html, :js
 
+  def index
+    @messages = Message.all
+  end
+
   def new
     @message = Message.new
   end
@@ -11,7 +15,6 @@ class MessagesController < ApplicationController
     @message = Message.create(message_params)
     @message.user_id = current_user.id
     @message.date = DateTime.now
-    sync_new @message
   end
 
   def update

@@ -9,6 +9,7 @@ gem 'thin'
 
 gem 'faye'
 gem 'sync'
+gem 'private_pub'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
