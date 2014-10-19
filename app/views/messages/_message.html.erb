@@ -1,7 +1,9 @@
 <li class="list-group-item list-group-item-info">
-  <%= message.user %>
+  <%= message.user.email %>
 
   <span class="deadline"><%= message.content %></span>
+
+  <span class="edit"><%= message.date %></span>
 
   <span class="edit">
     <%= link_to edit_message_path(message), remote: true do %>
