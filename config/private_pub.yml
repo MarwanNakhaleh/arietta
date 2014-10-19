@@ -5,6 +5,6 @@ test:
   server: "http://localhost:9292/faye"
   secret_token: "batkaro"
 production:
-  server: "http://frozen-sea-5431.com/faye"
+  server: "http://frozen-sea-5431.herokuapp.com/faye"
   secret_token: "7a3d9565b3490c9941da5ee88ad27e05c143baf6293536e5edb773d68e7a44ba"
   signature_expiration: 86400 # one hour
