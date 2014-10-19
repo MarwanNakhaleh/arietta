@@ -11,6 +11,7 @@ class MessagesController < ApplicationController
     @message = Message.create(message_params)
     @message.user_id = current_user.id
     @message.date = DateTime.now
+    sync_new @message
   end
 
   def update

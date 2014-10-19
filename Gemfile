@@ -6,6 +6,10 @@ gem 'simple_form', '~> 3.1.0.rc1'
 
 gem 'devise'
 gem 'thin'
+
+gem 'faye'
+gem 'sync'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use SCSS for stylesheets

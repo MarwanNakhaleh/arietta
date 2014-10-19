@@ -16,7 +16,9 @@
 </div>
 
 <div class="row">
-  <div class="col-md-7 col-md-offset-1" id="messages"><%= render @messages %></div>
+  <div class="col-md-7 col-md-offset-1" id="messages">
+  <%= sync partial: 'message_row', collection: @messages %>
+  </div>
 </div>
 
 
