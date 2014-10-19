@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-sass', '~> 3.1.1.1'
+gem 'momentjs-rails', '~> 2.5.0'
+gem 'simple_form', '~> 3.1.0.rc1'
+
 gem 'devise'
+gem 'thin'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use SCSS for stylesheets

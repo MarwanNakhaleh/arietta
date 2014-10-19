@@ -1,31 +1,25 @@
 <% if current_user %>
-<table>
-  <thead>
-    <tr>
-      <th>Sender</th>
-      <th>Content</th>
-      <th>Date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-md-5 col-md-offset-1">
+    <h2>Messages</h2>
+  </div>
 
-  <tbody>
-    <% @messages.each do |message| %>
-      <tr>
-        <td><%= message.user.email %></td>
-        <td><%= message.content %></td>
-        <td><%= message.date %></td>
-        <td><%= link_to 'Show', message %></td>
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
-        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+  <div class="col-md-2 col-md-offset-4">
+    <%= link_to new_message_path, remote: true do %>
+      <button class="btn btn-default">New</button>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
 
-<br>
+<div class="row">
+  <div class="col-md-6 col-md-offset-2" id="message-form" style="display:none;"></div>
+</div>
 
-<%= link_to 'New Message', new_message_path %>
+<div class="row">
+  <div class="col-md-7 col-md-offset-1" id="messages"><%= render @messages %></div>
+</div>
+
+
 <% else %>
 Hey! You need to be signed in to see these messages!<br>
 <%= link_to "Sign in", new_user_session_path %>

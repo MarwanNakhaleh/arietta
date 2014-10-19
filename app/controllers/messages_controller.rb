@@ -1,48 +1,37 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
-  respond_to :js, :html, :xml
-
-  def index
-    @messages = Message.all
-    respond_with(@messages)
-  end
-
-  def show
-    respond_with(@message)
-  end
+  before_action :all_messages, only: [:index, :create, :update, :destroy]
+  before_action :set_messages, only: [:edit, :update, :destroy]
+  respond_to :html, :js
 
   def new
     @message = Message.new
-    respond_with(@message)
-  end
-
-  def edit
   end
 
   def create
-    @message = Message.new(message_params)
+    @message = Message.create(message_params)
     @message.user_id = current_user.id
     @message.date = DateTime.now
-    @message.save
-    respond_with(@message)
   end
 
   def update
-    @message.update(message_params)
-    respond_with(@message)
+    @message.update_attributes(message_params)
   end
 
   def destroy
     @message.destroy
-    respond_with(@message)
   end
 
   private
-    def set_message
+
+    def all_messages
+      @messages = Message.all
+    end
+
+    def set_messages
       @message = Message.find(params[:id])
     end
 
     def message_params
-      params.require(:message).permit(:sender_id, :content, :date)
+      params.require(:message).permit(:content, :date, :user_id)
     end
 end
