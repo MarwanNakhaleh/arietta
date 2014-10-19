@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
-    @message.sender_id = current_user.id
+    @message.user_id = current_user.id
     @message.date = DateTime.now
     @message.save
     respond_with(@message)
