@@ -1,0 +1,26 @@
+<% if current_user %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sender:</strong>
+  <%= @message.sender_id %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @message.content %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @message.date %>
+</p>
+
+<%= link_to 'Edit', edit_message_path(@message) %> |
+<%= link_to 'Back', messages_path %>
+<% else %>
+Hey! You need to be signed in to see these messages!<br>
+<%= link_to "Sign in", new_user_session_path %>
+<br>
+<%= link_to "Sign up", new_user_registration_path %>
+<% end %>
